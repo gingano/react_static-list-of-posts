@@ -6,7 +6,7 @@ class CommentList extends React.Component {
     const { comments } = this.props;
     return (
       <ul className="CommentsList">
-        {comments.map(comment => <Comment comment={comment} />)}
+        {comments.map(data => <Comment comment={data} />)}
       </ul>
     );
   }

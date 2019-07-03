@@ -65,7 +65,7 @@ body {
   padding: 15px;
 }
 
-.CommentsList li h1 {
+.CommentsList li h2 {
   font-size: 14px;
   font-weight: 500;
 }

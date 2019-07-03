@@ -6,7 +6,8 @@ class Post extends React.Component {
   state = {
     commentsVisible: false
   }
-  commentsCounter = (post) => {
+
+  countOfComments = (post) => {
     let items = post.comments.filter(el => el.postId === post.id)
     return items.length
   }
@@ -16,34 +17,27 @@ class Post extends React.Component {
       commentsVisible: !this.state.commentsVisible,
     })
   }
+
   render() {
     // eslint-disable-next-line react/prop-types
     const {post} = this.props;
     return (
-
-          <li
-            key={post.id}
-          >
-            <div>
-              <h1>{post.title}</h1>
-              <p>{post.body}</p>
-              <User user={this.props.post.user}/>
-              <button
-                onClick={this.showComments}
-              >{
-                this.state.commentsVisible ?
-                  'Hide comments' :
-                  'Show ' + this.commentsCounter(post) + ' comments'
-              }</button>
-            </div>
-            {
-              this.state.commentsVisible ?
-                (<CommentList comments={this.props.post.comments}/>) :
-                null
-            }
-
-          </li>
-        )
+      <li key={post.id}>
+        <div>
+          <h1>{post.title}</h1>
+          <p>{post.body}</p>
+          <User user={this.props.post.user} />
+          <button onClick={this.showComments}>
+            {this.state.commentsVisible
+              ? "Hide comments"
+              : "Show " + this.countOfComments(post) + " comments"}
+          </button>
+        </div>
+        {this.state.commentsVisible
+          ? <CommentList comments={this.props.post.comments} />
+          : null}
+      </li>
+    );
   }
 }
 

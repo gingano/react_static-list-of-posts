@@ -6,10 +6,10 @@ class User extends React.Component {
     return (
       <div className="user">
         <div>
-Author: {user.name}
+          Author: {user.name}
         </div>
         <div>
-Author Email: {user.email}
+          Author Email: {user.email}
         </div>
       </div>
     );
